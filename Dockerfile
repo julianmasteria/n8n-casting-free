@@ -15,3 +15,7 @@ RUN python3 -m venv /opt/talent_analyzer/venv \
     fi
 
 USER node
+
+COPY ./init.sh /init.sh
+RUN chmod +x /init.sh
+ENTRYPOINT ["/init.sh"]
