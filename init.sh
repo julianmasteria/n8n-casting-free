@@ -1,7 +1,4 @@
-#!/bin/sh
-# Ejemplo mínimo; exporta lo que necesites y arranca n8n
-export DB_SQLITE_PATH=/data/database.sqlite
-export N8N_BASIC_AUTH_ACTIVE=true
-export N8N_BASIC_AUTH_USER=admin
-export N8N_BASIC_AUTH_PASSWORD=changeme
-n8n
+FROM n8nio/n8n:latest
+COPY init.sh /init.sh
+RUN chmod 755 /init.sh
+ENTRYPOINT ["/init.sh"]
